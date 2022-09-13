@@ -111,7 +111,7 @@ export default function HomeScreen({docId, name, setFamily, family}) {
       <View style={{height: "12.5%"}}></View>
       {!loaded && <View style={styles.loadingBox}><ActivityIndicator /></View>}
       {showWelcomeText && <Text style={styles.familyText}>Add some family members to your circle!</Text>}
-      {loaded && family != undefined && <View style={styles.container}>
+      {loaded && family != undefined && <><View style={styles.container}>
         {
           family.map((item, index) => (
             <ProfileCard
@@ -122,9 +122,12 @@ export default function HomeScreen({docId, name, setFamily, family}) {
               setReceiverEmail={setReceiverEmail}
               email={item.email}
               setModalVisible={setModalVisible}/>
-         ))
+         ))         
         }
-        </View>}
+        {family.length < 2 && <View style={styles.placeHolder}></View>}
+        {family.length < 3 && <View style={styles.placeHolder}></View>}
+        {family.length < 4 && <View style={styles.placeHolder}></View>}
+        </View></>}
     </ScrollView>
     <Title title={"Home"}/>
 
@@ -133,6 +136,18 @@ export default function HomeScreen({docId, name, setFamily, family}) {
 }
 
 const styles = StyleSheet.create({
+
+  placeHolder: {
+    display: "flex",
+    flexGrow: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+    margin: "2%",
+    width: "40%",
+    overflow: "hidden",
+    borderRadius: 10,
+  },
   
   background: {
     height: "100%",

@@ -33,7 +33,7 @@ export default function MessagesScreen({docId}) {
 
   const getCachedMessages = async () => {
     let cachedMessages = await getData("messages");
-    if (cachedMessages != undefined) {
+    if (cachedMessages != undefined && cachedMessages != null) {
       setMessages(cachedMessages);
     } else {
       if (docRef == null) return;

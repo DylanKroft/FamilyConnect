@@ -31,9 +31,6 @@
     "react": "17.0.2",
     "react-countdown": "^2.3.2",
     "react-dom": "17.0.2",
-    "react-icons": "^4.4.0",
-    "react-loader-spinner": "^5.3.4",
-    "react-media-recorder": "^1.6.6",
     "react-native": "0.68.2",
     "react-native-actions-sheet": "^0.7.2",
     "react-native-countdown-component": "^2.7.1",
@@ -50,11 +47,8 @@
     "react-native-vector-icons": "^9.2.0",
     "react-native-video": "^5.2.0",
     "react-native-vision-camera": "^2.14.0",
-    "react-player": "^2.10.1",
     "react-time-ago": "^7.2.1",
     "react-timeago": "^7.1.0",
-    "react-webcam": "^7.0.1",
-    "styled-components": "^5.3.5",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

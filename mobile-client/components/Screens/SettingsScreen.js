@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, TouchableOpacity, Image, Switch } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Image, Switch, Alert } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
@@ -54,7 +54,8 @@ export default function SettingsScreen({setLoggedIn, email, name, docId, setName
   }
 
   const toggleSwitch = () => {
-    setIsEnabled(!isEnabled);
+    Alert.alert("Cannot Disable Tablet Mode", "Tablet Mode cannot be disabled at this time.");
+    setIsEnabled(true);
     updateTablet(isEnabled);
   }
 
