@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.inputBox {
+  width: 80%;
+  height: 30px;
+  padding: 10px;
+  font-size: 1em;
+  outline: none !important;
+  border: 2px solid rgb(207, 207, 207);
+  border-radius: 10px;
+  transition-duration: 0.3s;
+
+}
+
+.inputBox:focus {
+  outline: none !important;
+  border: 2px solid #8A2BE2;
+}
+
+.username {
+  margin-bottom: 30px;
+}
