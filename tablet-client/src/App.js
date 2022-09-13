@@ -65,7 +65,7 @@ function App() {
   return (
     <>
       {!loggedIn && <Login setLoggedIn={setLoggedIn} setEmail={setEmail}/>}
-      {!dataLoaded && <LoadingContainer><Dna
+      {!dataLoaded && loggedIn && <LoadingContainer><Dna
             visible={true}
             height="100"
             width="100"
