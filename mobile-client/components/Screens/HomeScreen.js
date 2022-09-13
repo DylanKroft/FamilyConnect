@@ -129,7 +129,7 @@ export default function HomeScreen({docId, name, setFamily, family}) {
         {family.length < 4 && <View style={styles.placeHolder}></View>}
         </View></>}
     </ScrollView>
-    <Title title={"Home"}/>
+    <Title title={"Family"}/>
 
     </>
   )

@@ -24,7 +24,7 @@ export default function CircleSheet({family, setFamily}) {
             //set isConfirmable in recipient to false, ispending to false
             //set isPending to false on user
 
-        //setIsAddingFamily(false);
+        setIsAddingFamily(false);
     }
 
     const removeMember = (idx) => {

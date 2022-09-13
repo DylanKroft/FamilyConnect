@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, TouchableOpacity, ScrollView, Alert, ActivityIndicator } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, ScrollView, Alert, ActivityIndicator, RefreshControl } from 'react-native';
 import React, { useEffect, useState } from 'react'
 import MessageBar from '../MessageBar';
 import { doc, getDoc } from 'firebase/firestore';
@@ -9,8 +9,18 @@ import Title from './Title';
 import {LinearGradient} from 'expo-linear-gradient';
 import { getData, storeData } from '../../data';
 
+const wait = (timeout) => {
+  return new Promise(resolve => setTimeout(resolve, timeout));
+}
 
 export default function MessagesScreen({docId}) {
+
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
 
   const docRef = doc(db, "videos", docId);
   const storage = getStorage();
@@ -21,13 +31,14 @@ export default function MessagesScreen({docId}) {
   const [video, setVideo] = useState();
   const [videoViewed, setVideoViewed] = useState(false);
   const [idx, setIdx] = useState();
+  
 
   const getMessages = async () => {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       let tempMsgs = docSnap.data().received.sort((a,b) => b.time - a.time);
       setMessages(tempMsgs);
-      storeData("messages", tempMsgs);
+      //storeData("messages", null);
     }
   }
 
@@ -42,7 +53,7 @@ export default function MessagesScreen({docId}) {
   }
  
   useEffect(() => {
-    getCachedMessages();
+    getMessages();
   }, [])
 
   useEffect(() => {
@@ -66,16 +77,21 @@ export default function MessagesScreen({docId}) {
         end={{ x: 0.5, y: 0.5 }}
       />
       <View style={styles.refreshContainer}>
-        <TouchableOpacity style={styles.refreshButton} onPress={getMessages}>
-          <Text style={styles.refreshText}>
-            Refresh
-          </Text>
-        </TouchableOpacity>
+        
       </View>
       
-      <ScrollView contentContainerStyle={{flexGrow: 1}} style={styles.ScrollView}>
-      {!messages || messages.length <= 0 && <View style={styles.loadingBox}><ActivityIndicator/></View>}
-        <View style={{height: "12.5%"}}></View>
+      <ScrollView 
+        contentContainerStyle={{flexGrow: 1}} 
+        style={styles.ScrollView}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+          />
+        }
+      >
+      {!messages || messages.length < 0 && <View style={styles.loadingBox}><ActivityIndicator/></View>}
+        <View style={{height: "1%"}}></View>
         {
           messages.length > 0 && messages.map((item, index) => (
             <MessageBar
@@ -91,9 +107,11 @@ export default function MessagesScreen({docId}) {
               setVideoLink={setVideoLink} 
               link={item.video}
               videoViewed={videoViewed}
+              getMessages={getMessages}
             />
         ))
         }
+      <View style={styles.filler}/>
       </ScrollView>
       <Title title={"Messages"}/>
     </>
@@ -102,6 +120,10 @@ export default function MessagesScreen({docId}) {
 
 
 const styles = StyleSheet.create({
+
+  filler: {
+    height: 120,
+  },
 
   background: {
     height: "100%",

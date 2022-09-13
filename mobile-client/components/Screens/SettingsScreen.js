@@ -22,7 +22,7 @@ import { storeData } from '../../data';
 
 export default function SettingsScreen({setLoggedIn, email, name, docId, setName, family, setFamily, updateTablet}) {
 
-  const [isEnabled, setIsEnabled] = useState(false);
+  const [isEnabled, setIsEnabled] = useState(true);
 
   const tabBarHeight = useBottomTabBarHeight();
 

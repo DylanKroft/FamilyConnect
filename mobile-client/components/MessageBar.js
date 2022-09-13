@@ -5,7 +5,7 @@ import { collection, getDoc, doc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from '../firebase';
 import placeholder from "../assets/placeholder.png"
 
-export default function MessageBar({index, sender, date, viewed, setModalVisible, setVideoLink, link, docId, videoViewed, idx, setIdx}) {
+export default function MessageBar({index, sender, date, viewed, setModalVisible, setVideoLink, link, docId, videoViewed, idx, setIdx, getMessages}) {
   
   const docRef = doc(db, "videos", docId);
   const [isViewed, setIsViewed] = useState(viewed);
@@ -14,6 +14,7 @@ export default function MessageBar({index, sender, date, viewed, setModalVisible
     setVideoLink(link);
     setModalVisible(true);
     setIdx(index);
+    getMessages();
   }
 
   useEffect(() => {
