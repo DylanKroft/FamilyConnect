@@ -12,7 +12,6 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
   const [email, setEmail] = useState("");
-  const [docId, setDocId] = useState(null);
   const [name, setName] = useState(null);
   const [familyMembers, setFamilyMembers] = useState([]);
   const [familyPictures, setFamilyPictures] = useState([]);
@@ -27,7 +26,6 @@ function App() {
       const mail = doc.data().email;
       if (mail === email && doc.data().name != null) {
         setName(doc.data().name);
-        setDocId(doc.id);
         setFamilyMembers(doc.data().associates);
         getData();
       }
@@ -64,7 +62,7 @@ function App() {
 
   return (
     <>
-      {!loggedIn && <Login setLoggedIn={setLoggedIn} setEmail={setEmail}/>}
+      {!loggedIn && <Login setLoggedIn={setLoggedIn} setMail={setEmail}/>}
       {!dataLoaded && loggedIn && <LoadingContainer><Dna
             visible={true}
             height="100"

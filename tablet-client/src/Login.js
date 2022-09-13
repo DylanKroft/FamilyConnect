@@ -1,18 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 
-const Login = () => {
+const Login = ({setLoggedIn, setMail}) => {
+
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const logIn = () => {
+        const auth = getAuth();
+        signInWithEmailAndPassword(auth, email, password)
+            .then(() => {
+                setMail(email);
+                setLoggedIn(true);
+                setEmail();
+                setPassword();
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorMessage)
+            });
+    }
+
   return (
     <Container>
         <Main>
             <Title>Login</Title>
             <InputBox>
-                <input className='inputBox username'></input>
-                <input className='inputBox'></input>
+                <input className='inputBox username' placeholder='email' value={email} onChange={(e) => setEmail(e.target.value)}></input>
+                <input type="password" className='inputBox' placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)}></input>
             </InputBox>
             <ButtonBox>
-                <Button><ButtonText>Log In</ButtonText></Button>
+                <Button onClick={logIn}><ButtonText>Log In</ButtonText></Button>
             </ButtonBox>
 
         </Main>
@@ -86,7 +108,7 @@ const Button = styled.div`
     justify-content: center;
     flex-direction: column;
     height: 50px;
-    width: 50%;
+    width: 70%;
     border-radius: 500px;
     transition-duration: 0.2s;
 
