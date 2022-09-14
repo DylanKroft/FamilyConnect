@@ -40,7 +40,7 @@ export default function MessageBar({index, sender, date, viewed, setModalVisible
   return (
     <TouchableOpacity style={styles.container} onPress={showModal}>
         <View style={styles.imageContainer}>
-          <Image style={styles.imgSmall} source={placeholder}/>
+        <Text style={styles.profileLetter}>{sender[0]}</Text>
         </View>
         <View style={styles.textContainer}>
             <Text style={styles.senderText}>{sender}</Text>
@@ -144,7 +144,14 @@ const styles = StyleSheet.create({
         height: "70%",
         aspectRatio: 1,
         resizeMode: 'contain',
+      },
+
+      profileLetter: {
+        color: "white",
+        fontWeight: "800",
+        fontSize: "24px",
       }
+
 
 
     

@@ -94,7 +94,7 @@ export default function SettingsScreen({setLoggedIn, email, name, docId, setName
       <View style={[styles.container, {marginBottom: tabBarHeight + 20}]}>
         <View style={styles.user}>
           <View style={styles.profilePicture}>
-            <Image style={styles.imgSmall}  source={placeholder}/>
+            <Text style={styles.profileLetter}>{name[0]}</Text>
           </View>
           <View style={styles.profileInfoBox}>
             <Text style={styles.name}>{name}</Text>
@@ -263,6 +263,12 @@ const styles = StyleSheet.create({
     height: "70%",
     aspectRatio: 1,
     resizeMode: 'contain',
+  },
+
+  profileLetter: {
+    color: "white",
+    fontWeight: "800",
+    fontSize: "48px",
   }
 
 
