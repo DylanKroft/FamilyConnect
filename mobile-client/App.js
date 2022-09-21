@@ -29,7 +29,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    const getUserData = async() => {
+      const getUserData = async() => {
       const dbName = await getData("name");
       setName(dbName);
       const dbDocId = await getData("docId");
@@ -69,6 +69,8 @@ export default function App() {
     ),
 
   };
+
+  const Tab = createBottomTabNavigator();
 
   return (
     <>
@@ -135,7 +137,6 @@ export default function App() {
   );
 }
 
-const Tab = createBottomTabNavigator();
 LogBox.ignoreLogs(['Warning: Async Storage has been extracted from react-native core']);
 LogBox.ignoreLogs(["EventEmitter.removeListener"]);
 

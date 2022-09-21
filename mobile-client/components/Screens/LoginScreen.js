@@ -29,7 +29,7 @@ export default function LoginScreen({setLoggedIn, email, setEmail, password, set
 
     const handleLogIn = () => {
         signInWithEmailAndPassword(auth, email, password)
-        .then(userCredentials => {
+        .then(() => {
             setLoggedIn(true);
         })
         .catch(error => alert(error.message));
