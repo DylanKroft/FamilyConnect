@@ -1,4 +1,4 @@
-import { StyleSheet, LogBox } from 'react-native';
+import { StyleSheet, LogBox, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './components/Screens/HomeScreen';
@@ -12,8 +12,29 @@ import { Ionicons } from '@expo/vector-icons';
 import Toast, { BaseToast } from 'react-native-toast-message';
 import { BlurView } from 'expo-blur';
 import { storeData, getData } from './data';
+import * as Permissions from "expo-permissions";
+import * as Notifications from "expo-notifications";
 
 export default function App() {
+
+  useEffect(() => {
+    LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+    LogBox.ignoreAllLogs();//Ignore all log notifications
+  }, [])
+
+  useEffect(() => {
+    Notifications.Permissions
+    Permissions.getAsync(Permissions.NOTIFICATIONS).then((statusObj) => {
+      if (statusObj.status !== "granted") {
+        return Permissions.askAsync(Permissions.NOTIFICATIONS)
+      }
+        return statusObj;
+      }).then((statusObj) => {
+        if (statusObj.status !== "granted") {
+          return;
+        }
+      })
+    }, [loggedIn])
 
   const [loggedIn, setLoggedIn] = useState(false);
   const [email, setEmail] = useState("");
@@ -74,6 +95,7 @@ export default function App() {
 
   return (
     <>
+
     {!loggedIn && <LoginScreen setLoggedIn={setLoggedIn} email={email.toLowerCase()} password={password} setEmail={setEmail} setPassword={setPassword}/>}
     {(loggedIn && docId != undefined) && <NavigationContainer style={styles.container}>
       <Tab.Navigator 
@@ -93,6 +115,7 @@ export default function App() {
           email={email}
           docId={docId}
           setName={setName}
+          loggedIn={loggedIn}
           family={family}
           setFamily={setFamily}
           updateTablet={updateTablet}
@@ -137,9 +160,6 @@ export default function App() {
   );
 }
 
-LogBox.ignoreLogs(['Warning: Async Storage has been extracted from react-native core']);
-LogBox.ignoreLogs(["EventEmitter.removeListener"]);
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -156,4 +176,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     margin: 0,
   },
+
+  NewButton: {
+    height: "100%",
+  }
 });
