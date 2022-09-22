@@ -97,7 +97,7 @@ export default function SettingsScreen({setLoggedIn, email, name, docId, setName
         trigger: {
           hour:getRandomInt(12, 15),
           seconds: 1,
-          minute: 0,
+          minute: getRandomInt(0, 50),
           repeats: true
         }
       });
@@ -112,7 +112,7 @@ export default function SettingsScreen({setLoggedIn, email, name, docId, setName
         },
         trigger: {
           hour:getRandomInt(18, 23),
-          minute: 0,
+          minute: getRandomInt(0, 50),
           repeats: true
         }
       });
@@ -127,7 +127,7 @@ export default function SettingsScreen({setLoggedIn, email, name, docId, setName
         },
         trigger: {
           hour:getRandomInt(8, 11),
-          minute: 0,
+          minute: getRandomInt(0, 50),
           repeats: true
         }
       });
