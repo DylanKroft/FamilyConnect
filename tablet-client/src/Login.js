@@ -13,7 +13,7 @@ const Login = ({setLoggedIn, setMail}) => {
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
             .then(() => {
-                setMail(email);
+                setMail(email.toLowerCase());
                 setLoggedIn(true);
                 setEmail();
                 setPassword();
