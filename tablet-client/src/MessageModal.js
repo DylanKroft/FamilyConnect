@@ -33,6 +33,7 @@ const MessageModal = ({showMsgModal, setShowMsgModal, messages, getMessages, ema
 
     const replayVid = () => {
         getMessages();
+        setPlayable(true);
         player.current.seekTo(0, "seconds");        
     }
 
@@ -81,9 +82,9 @@ const MessageModal = ({showMsgModal, setShowMsgModal, messages, getMessages, ema
                         playing={playable}
                         height={1000}
                         width={1000}
-                        loop={false}
                         ref={player}
-                        onReady={() => setPlayable(true)}
+                        controls={true}
+                        onEnded={() => {setPlayable(false)}}
                         onPlay={markAsViewed}
                     />
                 </VideoSection>
