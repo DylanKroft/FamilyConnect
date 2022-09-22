@@ -75,7 +75,7 @@ const MessageModal = ({showMsgModal, setShowMsgModal, messages, getMessages, ema
                 <VideoSection>
                     <Loading>LOADING</Loading>
                     <ReactPlayer 
-                        playsInline
+                        playsinline={true}
                         style={{"zIndex": 1}}
                         url={vidLink} 
                         playing={playable}
