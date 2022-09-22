@@ -10,8 +10,8 @@
       "image": "./assets/splash.png",
       "resizeMode": "contain"
     },
-    "notification":{
-      "icon":"./assets/app-icon.png",
+    "notification": {
+      "icon": "./assets/app-icon.png",
       "color": "#311b92",
       "iosDisplayInForeground": true
     },
@@ -22,7 +22,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.dylankroft.FamilyConnect"
     },
     "android": {
       "adaptiveIcon": {
