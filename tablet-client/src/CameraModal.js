@@ -88,6 +88,8 @@ const CameraModal = ({show, setShow, name, recipient, recordWebcam, username}) =
 
           <Inner>
             <video
+              muted={true}
+              audio={true}
               ref={recordWebcam.webcamRef}
               style={{
                 zIndex: 10,
@@ -100,7 +102,6 @@ const CameraModal = ({show, setShow, name, recipient, recordWebcam, username}) =
                 }`
               }}
               autoPlay
-              muted
             />
             <video
               ref={recordWebcam.previewRef}
