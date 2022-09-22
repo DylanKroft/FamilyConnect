@@ -2,9 +2,9 @@
 
 | Dylan Kroft  | University of Sydney  |
 |---|---|
-| Degree  | Advanced Computing  |
 | SID   | 490295845  |
 | UniKey   | dkro8507  |
+| Degree  | Advanced Computing  |
 | Supervisors | Judy Kay & Bob Kummerfeld  |
 
 This is the repository for my Thesis project. There are two components two it:
