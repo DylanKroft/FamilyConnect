@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, SafeAreaView, Alert, ActivityIndicator } from 'react-native';
 import Modal from "react-native-modal";
-import { Video } from 'expo-av';
+import { Video, Audio } from 'expo-av';
 import { BlurView } from "expo-blur";
 
 
@@ -15,6 +15,10 @@ export default function VideoModal({isModalVisible, setModalVisible, video, setV
         setCheckStatus(true);
         setVideoViewed(false);
     }
+
+    useEffect(() => {
+        Audio.setAudioModeAsync({ playsInSilentModeIOS: true });
+    }, []);
 
     useEffect(() => {
         if (status.isPlaying && checkStatus) {
@@ -33,6 +37,7 @@ BlurView
             useNativeControls
             resizeMode="cover"
             shouldPlay={true}
+            playsInSilentModeIOS={true}
             onPlaybackStatusUpdate={status => setStatus(() => status)}
         />}
         <View style={styles.loadingBox}><ActivityIndicator /></View>
