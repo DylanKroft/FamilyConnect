@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-import Title from './Title';
+import Title from '../Title';
 import { Ionicons } from '@expo/vector-icons';
 import ActionSheet, { SheetManager,SheetProps,registerSheet } from "react-native-actions-sheet";
 import NameSheet from '../ActionSheets/NameSheet'

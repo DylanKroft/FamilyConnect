@@ -5,7 +5,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { getDownloadURL, getStorage, ref } from '@firebase/storage';
 import { db } from '../../firebase';
 import VideoModal from '../VideoModal';
-import Title from './Title';
+import Title from '../Title';
 import {LinearGradient} from 'expo-linear-gradient';
 import { getData, storeData } from '../../data';
 

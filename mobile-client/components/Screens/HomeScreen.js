@@ -7,7 +7,7 @@ import { collection, getDoc, doc } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref } from '@firebase/storage';
 import Toast from 'react-native-toast-message';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-import Title from './Title';
+import Title from '../Title';
 import { storeData, getData } from '../../data';
 import {LinearGradient} from 'expo-linear-gradient';
 
