@@ -14,7 +14,7 @@ export default function CircleSheet({family, setFamily}) {
     }
 
     const saveMember = () => {
-        Alert.alert("Unreleased Feature", "This feature has not been released yet. Please check back soon!");
+        Alert.alert("Unreleased Feature", "This feature has not been releaesd yet. Please check back soon!");
         //check if recipient exists
         //check if is full
         //add to current member as pending
@@ -28,7 +28,7 @@ export default function CircleSheet({family, setFamily}) {
     }
 
     const removeMember = (idx) => {
-        Alert.alert("Unreleased Feature", "This feature has not been released yet. Please check back soon!");
+        Alert.alert("Unreleased Feature", "This feature has not been releaesd yet. Please check back soon!");
         //remove selected family bar from members by index
         // let tempFamily = family remove idx
         // setFamily(tempFamily)

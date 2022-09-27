@@ -86,7 +86,7 @@ export default function MessagesScreen({docId}) {
         refreshControl={
           <RefreshControl
             refreshing={refreshing}
-            onRefresh={getMessages}
+            onRefresh={onRefresh}
           />
         }
       >

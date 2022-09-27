@@ -14,26 +14,15 @@ import placeholder from "../../assets/placeholder.png"
 import ProfilePictureSheet from '../ActionSheets/ProfilePictureSheet';
 import NotifcationsSheet from '../ActionSheets/NotificationsSheet';
 import { db } from '../../firebase';
-import { doc, setDoc, updateDoc, getDoc } from 'firebase/firestore';
+import { doc, setDoc, updateDoc } from 'firebase/firestore';
 import * as ImagePicker from 'expo-image-picker';
 import CircleSheet from '../ActionSheets/CircleSheet';
 import { storeData } from '../../data';
-import * as Notifications from "expo-notifications";
 
 
-
-export default function SettingsScreen({setLoggedIn, email, name, docId, setName, family, setFamily, updateTablet, loggedIn}) {
-
-  Notifications.setNotificationHandler({
-    handleNotification: async () => {
-    return {
-    shouldShowAlert: loggedIn
-    }}
-    })
-  
+export default function SettingsScreen({setLoggedIn, email, name, docId, setName, family, setFamily, updateTablet}) {
 
   const [isEnabled, setIsEnabled] = useState(true);
-  const [notifCount, setNotifCount] = useState(0)
 
   const tabBarHeight = useBottomTabBarHeight();
 
@@ -43,18 +32,6 @@ export default function SettingsScreen({setLoggedIn, email, name, docId, setName
       AsyncStorage.clear();
     }).catch(error => alert(error.message));
   }
-
-  useEffect(() => {
-    const getNotifcount = async () => {
-      const docRef = doc(db, "users", docId);
-      const docSnap = await getDoc(docRef);
-      let count = docSnap.data().notifications;
-      setNotifCount(count);
-    }
-    getNotifcount();
-    
-  }, [docId])
-  
 
   const saveName = async (newName) => {
     const docRef = doc(db, "users", docId);
@@ -72,79 +49,14 @@ export default function SettingsScreen({setLoggedIn, email, name, docId, setName
     SheetManager.hide("profilePictureSheet");
   }
 
-  const setNotifications = async (val) => {
-
-    await Notifications.cancelAllScheduledNotificationsAsync();
-    setNotifCount(val);
-    const docRef = doc(db, "users", docId);
-    await updateDoc(docRef, {
-      notifications: val
-    });
-
-
-
-    if (val === 0) {
-      await Notifications.cancelAllScheduledNotificationsAsync();
-    } 
-
-    if (val >= 1) {
-      const identifier = await Notifications.scheduleNotificationAsync({
-        content: {
-          title: "Family Connect",
-          body: "Send an afternoon message to your circle to let them know how you are doing",
-          data: { data: "goes here" },
-        },
-        trigger: {
-          hour:getRandomInt(12, 15),
-          seconds: 1,
-          minute: getRandomInt(0, 50),
-          repeats: true
-        }
-      });
-    }
-
-    if (val >= 2) {
-      const identifier = await Notifications.scheduleNotificationAsync({
-        content: {
-          title: "Family Connect",
-          body: "Send an evening message to your circle to let them know how you are doing",
-          data: { data: "goes here" },
-        },
-        trigger: {
-          hour:getRandomInt(18, 23),
-          minute: getRandomInt(0, 50),
-          repeats: true
-        }
-      });
-    }
-
-    if (val >= 3) {
-      const identifier = await Notifications.scheduleNotificationAsync({
-        content: {
-          title: "Family Connect",
-          body: "Send a morning message to your circle to let them know how you are doing",
-          data: { data: "goes here" },
-        },
-        trigger: {
-          hour:getRandomInt(8, 11),
-          minute: getRandomInt(0, 50),
-          repeats: true
-        }
-      });
-    }
-
+  const setNotifications = () => {
+    SheetManager.hide("notificationsSheet");
   }
 
   const toggleSwitch = () => {
     Alert.alert("Cannot Disable Tablet Mode", "Tablet Mode cannot be disabled at this time.");
     setIsEnabled(true);
     updateTablet(isEnabled);
-  }
-
-  function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min);
   }
 
 
@@ -164,7 +76,7 @@ export default function SettingsScreen({setLoggedIn, email, name, docId, setName
       </ActionSheet>
 
       <ActionSheet id="notificationsSheet">
-        <NotifcationsSheet email={email} setNotifications={setNotifications} notifCount={notifCount}/>
+        <NotifcationsSheet email={email} setNotifications={setNotifications}/>
       </ActionSheet>
 
       <ActionSheet id="circleSheet">
@@ -356,7 +268,7 @@ const styles = StyleSheet.create({
   profileLetter: {
     color: "white",
     fontWeight: "800",
-    fontSize: 48,
+    fontSize: "48px",
   }
 
 

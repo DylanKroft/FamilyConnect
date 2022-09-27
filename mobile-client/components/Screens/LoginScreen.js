@@ -4,6 +4,7 @@ import { KeyboardAvoidingView, TextInput, TouchableOpacity } from 'react-native'
 import { auth, db } from '../../firebase'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 import {LinearGradient} from 'expo-linear-gradient';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { doc, setDoc } from 'firebase/firestore'
 
 export default function LoginScreen({setLoggedIn, email, setEmail, password, setPassword}) {
@@ -28,7 +29,7 @@ export default function LoginScreen({setLoggedIn, email, setEmail, password, set
 
     const handleLogIn = () => {
         signInWithEmailAndPassword(auth, email, password)
-        .then(() => {
+        .then(userCredentials => {
             setLoggedIn(true);
         })
         .catch(error => alert(error.message));

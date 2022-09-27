@@ -1,19 +1,15 @@
 {
   "expo": {
-    "name": "FamilyConnect",
-    "slug": "FamilyConnect",
+    "name": "App",
+    "slug": "App",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/app-icon.png",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain"
-    },
-    "notification": {
-      "icon": "./assets/app-icon.png",
-      "color": "#311b92",
-      "iosDisplayInForeground": true
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,18 +18,16 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.dylankroft.FamilyConnect"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/app-icon.png",
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      },
-      "useNextNotificationsApi": true
+      }
     },
     "web": {
-      "favicon": "./assets/app-icon.png"
+      "favicon": "./assets/favicon.png"
     }
   }
 }
