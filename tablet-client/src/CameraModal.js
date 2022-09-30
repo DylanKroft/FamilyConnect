@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import styled from 'styled-components'
-import Webcam from "react-webcam";
 import {v4} from 'uuid';
 import { uploadBytes, getStorage, ref } from '@firebase/storage';
-import { useReactMediaRecorder } from "react-media-recorder";
-import { collection, getDoc, doc, updateDoc, arrayUnion, serverTimestamp } from "firebase/firestore"; 
+import { doc, updateDoc, arrayUnion } from "firebase/firestore"; 
 import { db } from './index.js';
 import {
-  useRecordWebcam,
   CAMERA_STATUS
 } from "react-record-webcam";
 

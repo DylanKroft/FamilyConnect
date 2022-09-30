@@ -26,7 +26,7 @@ export default function CameraModal({isModalVisible, setModalVisible, recipient,
     const startRecording = async () => {
         setRecording(true);
         let options = {
-            quality: 480,
+            quality: "480p",
             maxDuration: 30,
             mirror: true,
         };

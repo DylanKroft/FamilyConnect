@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
       profileLetter: {
         color: "white",
         fontWeight: "800",
-        fontSize: "24px",
+        fontSize: 24,
       }
 
 

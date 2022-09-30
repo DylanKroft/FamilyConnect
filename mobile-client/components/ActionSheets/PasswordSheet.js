@@ -5,7 +5,7 @@ import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 export default function PasswordSheet({email, savePassword}) {
 
     const sendPasswordEmail = () => {
-      Alert.alert("Unreleased Feature", "This feature has not been releaesd yet. Please check back soon!");
+      Alert.alert("Unreleased Feature", "This feature has not been released yet. Please check back soon!");
       return;
         const auth = getAuth();
         sendPasswordResetEmail(auth, email)
