@@ -95,6 +95,8 @@ const Home = ({setLoggedIn, familyNames, familyPictures, familyMembers, username
                 /> 
             ))
             }
+            {familyNames !== undefined && familyNames.length === 1 && <Temp/>}
+
         </Matrix>}
         <Footer onClick={openMsgsModal}>
             <IconContext.Provider
@@ -174,4 +176,17 @@ const PlaceHolder = styled.div`
     display: flex;
     flex-direction: column;
     padding: 20px;   
+`
+
+const Temp = styled.div`
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: 600;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
 `
