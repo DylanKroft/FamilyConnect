@@ -113,7 +113,7 @@ export default function MessagesScreen({docId}) {
         }
       <View style={styles.filler}/>
       </ScrollView>
-      <Title title={"Messages"}/>
+      <Title title={"Inbox"}/>
     </>
   )
 }

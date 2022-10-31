@@ -142,10 +142,10 @@ export default function App() {
           }}
         />
         <Tab.Screen 
-          name="Messages" 
+          name="Inbox" 
           children={()=><MessagesScreen docId={docId}/>}
           options={{
-            tabBarLabel: 'Messages',
+            tabBarLabel: 'Inbox',
             headerShown: false,
             tabBarActiveTintColor: 'rgb(0, 199, 190)',
             tabBarIcon: ({ color, size }) => (
