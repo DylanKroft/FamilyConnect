@@ -28,7 +28,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #E5E4E2;
+    background-color: rgb(235, 235, 240);
     margin: 0px 20px 20px 20px;
     border-radius: 20px;
     -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
@@ -45,7 +45,7 @@ const Left = styled.div`
 
 const RightGreen = styled.div`
   padding: 10px 15px 10px 15px;
-  background-color: green;
+  background-color: rgb(36, 138, 61);
   font-weight: 600;
   color: white;
   margin-right: 20px;
@@ -54,7 +54,7 @@ const RightGreen = styled.div`
 
 const RightGray = styled.div`
   padding: 10px 15px 10px 15px;
-  background-color: gray;
+  background-color: rgb(108, 108, 112);
   font-weight: 600;
   color: white;
   margin-right: 20px;

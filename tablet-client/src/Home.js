@@ -117,6 +117,7 @@ export default Home
 const Container = styled.div`
     width: 100vw;
     height: 100vh;
+    background-color: rgb(242, 242, 247);
 `
 
 const Matrix = styled.div`
@@ -134,7 +135,7 @@ const Header = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: gray;
+    background-color: rgb(142, 142, 147);
     width: 100%;
     font-size: 2em;
     font-weight: 600;
@@ -147,7 +148,7 @@ const Footer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #708090;
+    background-color: rgb(108, 108, 112);
     width: 100%;
     font-size: 2em;
     font-weight: 600;
@@ -164,6 +165,7 @@ const Logout = styled.div`
     color: white;
     padding: 5px 10px 5px 10px;
     border-radius: 100px;
+    display: none;
 `
 
 const PlaceHolder = styled.div`

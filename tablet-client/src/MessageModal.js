@@ -153,11 +153,12 @@ const Footer = styled.div`
   width: 100%;
   display: flex;
   height: 10%;
+  background-color: rgb(216, 216, 220);
 `
 
 const Close = styled.div`
   flex: 1;
-  background-color: red;
+  background-color: rgb(215, 0, 21);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -169,11 +170,12 @@ const Close = styled.div`
 
 const MsgSection = styled.div`
   display: flex;
-  background-color: lightgray;
+  background-color: rgb(216, 216, 220);
   align-items: flex-end;
   justify-content: center;
   height: 80%;
   width: 100%;
+  background-color: rgb(216, 216, 220);
 
 `
 
@@ -181,7 +183,7 @@ const MsgHeader = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #708090;
+    background-color: rgb(108, 108, 112);
     color: white;
     font-size: 1.5em;
     font-weight: 600;
@@ -193,6 +195,7 @@ const Inner = styled.div`
     height: calc(100% - 20px);
     overflow-y: scroll;
     overflow-x: hidden;
+    background-color: rgb(216, 216, 220);
 
 `
 
@@ -202,8 +205,8 @@ const VideoBox = styled.div`
 
 const VideoSection = styled.div`
   display: flex;
-  background-color: lightgray;
   align-items: center;
+  background-color: rgb(216, 216, 220);
   justify-content: center;
   height: 80%;
   width: 100%;
@@ -212,7 +215,7 @@ const VideoSection = styled.div`
 
 const Replay = styled.div`
   flex: 1;
-  background-color: orange;
+  background-color: rgb(255, 179, 64);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -228,5 +231,6 @@ const Loading = styled.div`
     position: absolute;
     font-size: 3em;
     font-weight: 800;
-    color: white;
+    color: black;
+    background-color: rgb(216, 216, 220);
 `

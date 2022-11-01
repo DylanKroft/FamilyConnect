@@ -171,7 +171,7 @@ const VideoSection = styled.div`
 
 const Close = styled.div`
   flex: 1;
-  background-color: red;
+  background-color: rgb(215, 0, 21);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -182,7 +182,7 @@ const Close = styled.div`
 
 const Record = styled.div`
   flex: 1;
-  background-color: orange;
+  background-color: rgb(255, 179, 64);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -193,7 +193,7 @@ const Record = styled.div`
 
 const Send = styled.div`
   flex: 1;
-  background-color: green;
+  background-color: rgb(36, 138, 61);
   display: flex;
   align-items: center;
   justify-content: center;

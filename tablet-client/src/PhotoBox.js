@@ -89,7 +89,7 @@ const PictureBox = styled.div`
 
 const BottomBar = styled.div`
     flex: 1;
-    background-color: lightgray;
+    background-color: rgb(188, 188, 192);
     width: 100%;
     display: flex;
     align-items: center;
