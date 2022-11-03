@@ -11,7 +11,7 @@ This is the repository for my Thesis project. There are two components two it:
 - a mobile application written in React Native for iOS
 - tablet application written in ReactJs
 
-**NOTE** In order to make this repository public, the api keys to connect with Firebase have been removed. As such, though the code can be downloaded, it cannot be run. To request the necessary api keys, please email dylankroft@gmail.com
+**NOTE** In order to make this repository public, the api keys to connect with Firebase have been removed. As such, though the code can be downloaded, it cannot be run. To request the api keys required to build the system locally, please email dylankroft@gmail.com.
 
 
 ## Mobile App Side ##
